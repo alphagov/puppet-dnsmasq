@@ -20,7 +20,9 @@ class dnsmasq::install {
       before  => Package[$dnsmasq::params::package_name],
     }
   }
+  #### Package management
+
   package { $dnsmasq::params::package_name:
-    ensure => installed,
+    ensure => $dnsmasq::package_ensure,
   }
 }
