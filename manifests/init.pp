@@ -14,7 +14,7 @@
 #   file in /var/run/dnsmasq/resolv.conf to be read by dnsmasq.
 #   Default: no
 #
-# [*pacakge_ensure*]
+# [*package_ensure*]
 #   Parameter passed to ensure attribute of package resource. Valid
 #   values as per Puppet package resource documentation.
 #   Default: installed
