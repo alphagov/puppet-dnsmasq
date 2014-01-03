@@ -14,6 +14,11 @@
 #   file in /var/run/dnsmasq/resolv.conf to be read by dnsmasq.
 #   Default: no
 #
+# [*pacakge_ensure*]
+#   Parameter passed to ensure attribute of package resource. Valid
+#   values as per Puppet package resource documentation.
+#   Default: installed
+#
 # Note that both upstream_servers and use_resolvconf work by setting a
 # `resolv-file` value using dnsmasq::conf. While they *can* be used
 # together, they probably won't do what you expect: when you specify
@@ -25,7 +30,8 @@
 # leave dnsmasq to its default behaviour of reading /etc/resolv.conf.
 class dnsmasq (
   $upstream_servers = undef,
-  $use_resolvconf = 'no'
+  $use_resolvconf = 'no',
+  $package_ensure = installed,
   ) {
   include dnsmasq::params
 

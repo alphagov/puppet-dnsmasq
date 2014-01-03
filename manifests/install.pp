@@ -21,29 +21,8 @@ class dnsmasq::install {
     }
   }
   #### Package management
-  # set params: in operation
-  if $dnsmasq::params::ensure == 'installed' {
-
-    # Check if we want to install a specific version or not
-    if $dnsmasq::params::version == false {
-
-      $package_ensure = $dnsmasq::params::autoupgrade ? {
-        true  => 'latest',
-        false => 'installed',
-      }
-
-    } else {
-      # install specific version
-      $package_ensure = $dnsmasq::params::version
-
-    }
-
-  # set params: removal
-  } else {
-    $package_ensure = 'purged'
-  }
 
   package { $dnsmasq::params::package_name:
-    ensure => $package_ensure,
+    ensure => $dnsmasq::package_ensure,
   }
 }

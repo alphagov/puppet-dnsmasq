@@ -2,26 +2,7 @@
 #
 # This class is private to the dnsmasq implementation
 #
-# == Parameters:
-#
-# [*ensure*]
-#   Parameter passed to ensure attribute of package resource for
-#   dnsmasq
-#   Default: installed
-#
-# [*version*]
-#   Specific version if required
-#   Default: false
-#
-# [*autoupgrade*]
-#   Flag for taking latest version available
-#   Default: false
-#
-class dnsmasq::params (
-  $ensure = 'installed',
-  $version = false,
-  $autoupgrade = false,
-){
+class dnsmasq::params {
   case $::osfamily {
     debian: {
       $package_name = 'dnsmasq'
